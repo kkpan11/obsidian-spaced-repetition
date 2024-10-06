@@ -8,12 +8,11 @@ repo_name: st3v3nmw/obsidian-spaced-repetition
 repo_url: https://github.com/st3v3nmw/obsidian-spaced-repetition/
 edit_uri: ""
 docs_dir: docs/docs
-# use_directory_urls: false
 
 theme:
     name: material
-    logo: assets/favicon.ico
-    favicon: assets/favicon.ico
+    logo: favicon.ico
+    favicon: favicon.ico
     icon:
         repo: fontawesome/brands/github
     palette:
@@ -34,8 +33,9 @@ nav:
     - Index: index.md
     - Flashcards:
           - Flashcards Overview: flashcards/flashcards-overview.md
-          - Question & Answer Cards: flashcards/qanda-cards.md
+          - Question & Answer Cards: flashcards/q-and-a-cards.md
           - Cloze Cards: flashcards/basic-cloze-cards.md
+          - Cards with Blank Lines: flashcards/cards-with-blank-lines.md
           - Organizing into Decks: flashcards/decks.md
           - Reviewing & Cramming: flashcards/reviewing.md
           - Statistics: flashcards/statistics.md
@@ -81,7 +81,7 @@ markdown_extensions:
     - md_in_html
 
 extra_css:
-    - stylesheets/extra.css
+    - extra.css
 
 remote_branch: gh-pages
 remote_name: origin

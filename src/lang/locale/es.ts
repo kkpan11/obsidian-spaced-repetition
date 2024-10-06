@@ -50,29 +50,29 @@ export default {
     YEARS_STR_IVL_MOBILE: "${interval}a",
 
     // settings.ts
-    SETTINGS_HEADER: "Extensión de Repetición Espaciada - Ajustes",
+    SETTINGS_HEADER: "Extensión de Repetición Espaciada",
     GROUP_TAGS_FOLDERS: "Tags & Folders",
     GROUP_FLASHCARD_REVIEW: "Flashcard Review",
     GROUP_FLASHCARD_SEPARATORS: "Flashcard Separators",
     GROUP_DATA_STORAGE: "Storage of Scheduling Data",
+    GROUP_DATA_STORAGE_DESC: "Choose where to store the scheduling data",
     GROUP_FLASHCARDS_NOTES: "Flashcards & Notes",
     GROUP_CONTRIBUTING: "Contributing",
-    CHECK_WIKI: 'Para más información revisa la <a href="${wiki_url}">wiki</a>.',
+    CHECK_WIKI: 'Para más información revisa la <a href="${wikiUrl}">wiki</a>.',
     GITHUB_DISCUSSIONS:
-        'Visit the <a href="${discussions_url}">discussions</a> section for Q&A help, feedback, and general discussion.',
+        'Visit the <a href="${discussionsUrl}">discussions</a> section for Q&A help, feedback, and general discussion.',
     GITHUB_ISSUES:
-        'Raise an issue <a href="${issues_url}">here</a> if you have a feature request or a bug-report.',
+        'Raise an issue <a href="${issuesUrl}">here</a> if you have a feature request or a bug report.',
     GITHUB_SOURCE_CODE:
-        'Project source code available on <a href="${github_project_url}">GitHub</a>',
+        'The project\'s source code is available on <a href="${githubProjectUrl}">GitHub</a>.',
     CODE_CONTRIBUTION_INFO:
-        'Information on <a href="${code_contribution_url}">code contributions</a>',
+        '<a href="${codeContributionUrl}">Here\'s</a> how to contribute code to the plugin.',
     TRANSLATION_CONTRIBUTION_INFO:
-        'Information on <a href="${translation_contribution_url}">translating the plugin</a> to your language',
-    PROJECT_CONTRIBUTIONS:
-        'Raise an issue <a href="${issues_url}">here</a> if you have a feature request or a bug-report',
+        '<a href="${translationContributionUrl}">Here\'s</a> how to translate the plugin to another language.',
     FOLDERS_TO_IGNORE: "Directorios a ignorar",
-    FOLDERS_TO_IGNORE_DESC: `Escriba las rutas de los directorios separadas por saltos de línea, por ejemplo, Plantillas Extra/Guiones.
-Note that this setting is common to both Flashcards and Notes.`,
+    FOLDERS_TO_IGNORE_DESC:
+        "Enter folder paths or glob patterns on separate lines e.g. Templates/Scripts or **/*.excalidraw.md. This setting is common to both flashcards and notes.",
+    OBSIDIAN_INTEGRATION: "Integration into Obsidian",
     FLASHCARDS: "Tarjetas de Memorización",
     FLASHCARD_EASY_LABEL: "Texto del botón: Fácil",
     FLASHCARD_GOOD_LABEL: "Texto del botón: Bien",
@@ -80,6 +80,8 @@ Note that this setting is common to both Flashcards and Notes.`,
     FLASHCARD_EASY_DESC: "Personalize la etiqueta para el botón: Fácil",
     FLASHCARD_GOOD_DESC: "Personalize la etiqueta para el botón: Bien",
     FLASHCARD_HARD_DESC: "Personalize la etiqueta para el botón: Difícil",
+    REVIEW_BUTTON_DELAY: "Button Press Delay (ms)",
+    REVIEW_BUTTON_DELAY_DESC: "Add a delay to the review buttons before they can be pressed again.",
     FLASHCARD_TAGS: "Etiquetas de las Tarjetas de Memorización",
     FLASHCARD_TAGS_DESC:
         "Escriba las etiquetas separadas por espacios o saltos de línea, por ejemplo, #memorizar #mazo2 #mazo3",
@@ -124,6 +126,8 @@ Note that this setting is common to both Flashcards and Notes.`,
     MULTILINE_CARDS_SEPARATOR: "Separador para tarjetas de memorización multilínea",
     MULTILINE_REVERSED_CARDS_SEPARATOR:
         "Separador para tarjetas de memorización multilínea invertidas",
+    MULTILINE_CARDS_END_MARKER:
+        "Caracteres que denotan el fin de los clozes y tarjetas didácticas de varias líneas",
     NOTES: "Notes",
     REVIEW_PANE_ON_STARTUP: "Activar panel de revisión de notas al arrancar",
     TAGS_TO_REVIEW: "Etiquetas a revisar",
@@ -133,20 +137,26 @@ Note that this setting is common to both Flashcards and Notes.`,
     OPEN_RANDOM_NOTE_DESC:
         "Cuando deshabilita esto, las notas son ordenadas por importancia (Algoritmo PageRank).",
     AUTO_NEXT_NOTE: "Abrir la siguiente nota automáticamente después de una revisión",
-    DISABLE_FILE_MENU_REVIEW_OPTIONS:
-        "Deshabilitar opciones de revisión en el menú de archivo, por ejemplo, Revisión: Fácil Bien Difícil",
-    DISABLE_FILE_MENU_REVIEW_OPTIONS_DESC:
-        "Después de deshabilitarlo, puede hacer las revisiones utilizando atajos de teclado. Reinicie Obsidian después de cambiar esto.",
+    ENABLE_FILE_MENU_REVIEW_OPTIONS:
+        "Habilita las opciones de revisión en el menú Archivo (por ejemplo: Revisar: Fácil, Bien, Difícil)",
+    ENABLE_FILE_MENU_REVIEW_OPTIONS_DESC:
+        "Si desactivas las opciones de revisión en el menú Archivo, puedes revisar tus notas usando los comandos del plugin y, si los definiste, las teclas rápidas asociadas.",
     MAX_N_DAYS_REVIEW_QUEUE: "Número máximo de días a mostrar en el panel derecho.",
     MIN_ONE_DAY: "El número de días debe ser al menos uno.",
     VALID_NUMBER_WARNING: "Por favor especifique un número válido.",
-    UI_PREFERENCES: "Preferencias de la interfaz de usuario.",
+    UI: "User Interface",
+    SHOW_STATUS_BAR: "Show status bar",
+    SHOW_STATUS_BAR_DESC:
+        "Turn this off to hide the flashcard's review status in Obsidian's status bar",
+    SHOW_RIBBON_ICON: "Show icon in the ribbon bar",
+    SHOW_RIBBON_ICON_DESC: "Turn this off to hide the plugin icon from Obsidian's ribbon bar",
     INITIALLY_EXPAND_SUBDECKS_IN_TREE: "Los árboles de mazos deberían ser expandidos al inicio.",
     INITIALLY_EXPAND_SUBDECKS_IN_TREE_DESC:
         "Desactiva esto para contraer mazos anidados en la misma tarjeta. Útil si tienes tarjetas que pertenecen a muchos mazos en el mismo archivo.",
     ALGORITHM: "Algoritmo",
     CHECK_ALGORITHM_WIKI:
-        'Para más información, revisa la <a href="${algo_url}">implementación del algoritmo</a>.',
+        'Para más información, revisa la <a href="${algoUrl}">implementación del algoritmo</a>.',
+    SM2_OSR_VARIANT: "OSR's variant of SM-2",
     BASE_EASE: "Base ease",
     BASE_EASE_DESC: "El mínimo es 130, es preferible que esté aproximado a 250.",
     BASE_EASE_MIN_WARNING: "La facilidad base de las tarjetas debe ser al menos 130.",
@@ -165,7 +175,13 @@ Note that this setting is common to both Flashcards and Notes.`,
     MAX_LINK_CONTRIB_DESC:
         "Contribución máxima de la facilidad ponderada de las notas vinculadas a la facilidad inicial.",
     LOGGING: "Registro",
-    DISPLAY_DEBUG_INFO: "¿Mostrar información de depuración en la consola de desarrollador?",
+    DISPLAY_SCHEDULING_DEBUG_INFO:
+        "¿Mostrar información de depuración en la consola de desarrollador",
+    DISPLAY_PARSER_DEBUG_INFO: "Show the parser's debugging information on the developer console",
+    SCHEDULING: "Scheduling",
+    EXPERIMENTAL: "Experimental",
+    HELP: "Help",
+    STORE_IN_NOTES: "In the notes",
 
     // sidebar.ts
     NOTES_REVIEW_QUEUE: "Cola de notas a revisar",

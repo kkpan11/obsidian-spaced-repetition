@@ -59,29 +59,29 @@ export default {
     YEARS_STR_IVL_MOBILE: "${interval}г.",
 
     // settings.ts
-    SETTINGS_HEADER: "Плагин Spaced Repetition - Настройки",
+    SETTINGS_HEADER: "Spaced Repetition",
     GROUP_TAGS_FOLDERS: "Tags & Folders",
     GROUP_FLASHCARD_REVIEW: "Flashcard Review",
     GROUP_FLASHCARD_SEPARATORS: "Flashcard Separators",
     GROUP_DATA_STORAGE: "Storage of Scheduling Data",
+    GROUP_DATA_STORAGE_DESC: "Choose where to store the scheduling data",
     GROUP_FLASHCARDS_NOTES: "Flashcards & Notes",
     GROUP_CONTRIBUTING: "Contributing",
-    CHECK_WIKI: 'Для дополнительной информации посетите: <a href="${wiki_url}">wiki</a>.',
+    CHECK_WIKI: 'Для дополнительной информации посетите: <a href="${wikiUrl}">wiki</a>.',
     GITHUB_DISCUSSIONS:
-        'Visit the <a href="${discussions_url}">discussions</a> section for Q&A help, feedback, and general discussion.',
+        'Visit the <a href="${discussionsUrl}">discussions</a> section for Q&A help, feedback, and general discussion.',
     GITHUB_ISSUES:
-        'Raise an issue <a href="${issues_url}">here</a> if you have a feature request or a bug-report.',
+        'Raise an issue <a href="${issuesUrl}">here</a> if you have a feature request or a bug report.',
     GITHUB_SOURCE_CODE:
-        'Project source code available on <a href="${github_project_url}">GitHub</a>',
+        'The project\'s source code is available on <a href="${githubProjectUrl}">GitHub</a>.',
     CODE_CONTRIBUTION_INFO:
-        'Information on <a href="${code_contribution_url}">code contributions</a>',
+        '<a href="${codeContributionUrl}">Here\'s</a> how to contribute code to the plugin.',
     TRANSLATION_CONTRIBUTION_INFO:
-        'Information on <a href="${translation_contribution_url}">translating the plugin</a> to your language',
-    PROJECT_CONTRIBUTIONS:
-        'Raise an issue <a href="${issues_url}">here</a> if you have a feature request or a bug-report',
+        '<a href="${translationContributionUrl}">Here\'s</a> how to translate the plugin to another language.',
     FOLDERS_TO_IGNORE: "Игнорируемые папки",
-    FOLDERS_TO_IGNORE_DESC: `Укажите пути папок, каждый на своей строке, например: Templates Meta/Scripts.
-Note that this setting is common to both Flashcards and Notes.`,
+    FOLDERS_TO_IGNORE_DESC:
+        "Enter folder paths or glob patterns on separate lines e.g. Templates/Scripts or **/*.excalidraw.md. This setting is common to both flashcards and notes.",
+    OBSIDIAN_INTEGRATION: "Integration into Obsidian",
     FLASHCARDS: "Карточки",
     FLASHCARD_EASY_LABEL: 'Текст кнопки "Легко"',
     FLASHCARD_GOOD_LABEL: 'Текст кнопки "Нормально"',
@@ -89,6 +89,8 @@ Note that this setting is common to both Flashcards and Notes.`,
     FLASHCARD_EASY_DESC: 'Настроить ярлык для кнопки "Легко"',
     FLASHCARD_GOOD_DESC: 'Настроить ярлык для кнопки "Нормально"',
     FLASHCARD_HARD_DESC: 'Настроить ярлык для кнопки "Сложно"',
+    REVIEW_BUTTON_DELAY: "Button Press Delay (ms)",
+    REVIEW_BUTTON_DELAY_DESC: "Add a delay to the review buttons before they can be pressed again.",
     FLASHCARD_TAGS: "Теги карточек",
     FLASHCARD_TAGS_DESC:
         "Укажите теги разделенные Enter-ом или пробелом, например: #flashcards #deck2 #deck3.",
@@ -133,6 +135,7 @@ Note that this setting is common to both Flashcards and Notes.`,
     INLINE_REVERSED_CARDS_SEPARATOR: "Разделитель для обратных внутристрочных карточек",
     MULTILINE_CARDS_SEPARATOR: "Разделитель для многострочных карточек",
     MULTILINE_REVERSED_CARDS_SEPARATOR: "Разделитель для обратных многострочных карточек",
+    MULTILINE_CARDS_END_MARKER: "Символы, обозначающие конец клозов и многострочных карточек",
     NOTES: "Заметки",
     REVIEW_PANE_ON_STARTUP: "Включить панель изучения карточек при запуске программы",
     TAGS_TO_REVIEW: "Теги для изучения",
@@ -141,21 +144,27 @@ Note that this setting is common to both Flashcards and Notes.`,
     OPEN_RANDOM_NOTE: "Открыть случайную заметку для изучения",
     OPEN_RANDOM_NOTE_DESC: "Если выключить, то заметки будут отсортированы по важности (PageRank).",
     AUTO_NEXT_NOTE: "После изучения автоматически открывать следующую заметку",
-    DISABLE_FILE_MENU_REVIEW_OPTIONS:
-        "Выключить выбор сложности изучения в меню файла, т.е.: Изучение: Легко Нормально Сложно",
-    DISABLE_FILE_MENU_REVIEW_OPTIONS_DESC:
-        "После выключения вы сможете изучать карточки при помощи горячих клавиш. Перезагрузите Obsidian после изменения этой настройки.",
+    ENABLE_FILE_MENU_REVIEW_OPTIONS:
+        "Включите параметры обзора в меню Файл (т.е.: Изучение: Легко, Нормально, Сложно)",
+    ENABLE_FILE_MENU_REVIEW_OPTIONS_DESC:
+        "Если вы отключите параметры обзора в меню Файл, вы сможете просматривать свои заметки с помощью команд плагина и, если вы их задали, соответствующих горячих клавиш.",
     MAX_N_DAYS_REVIEW_QUEUE: "Наибольшее количество дней для отображение на панели справа",
     MIN_ONE_DAY: "Количество дней не меньше 1.",
     VALID_NUMBER_WARNING: "Пожалуйста, введите подходящее число.",
-    UI_PREFERENCES: "Пользовательский интерфейс - Настройки",
+    UI: "User Interface",
+    SHOW_STATUS_BAR: "Show status bar",
+    SHOW_STATUS_BAR_DESC:
+        "Turn this off to hide the flashcard's review status in Obsidian's status bar",
+    SHOW_RIBBON_ICON: "Show icon in the ribbon bar",
+    SHOW_RIBBON_ICON_DESC: "Turn this off to hide the plugin icon from Obsidian's ribbon bar",
     INITIALLY_EXPAND_SUBDECKS_IN_TREE:
         "Деревья колод должны изначально отображаться как развернутые",
     INITIALLY_EXPAND_SUBDECKS_IN_TREE_DESC:
         "Отключите этот параметр, чтобы свернуть вложенные колоды на одной карточке. Полезно, если у вас есть карты, которые принадлежат многим колодам в одном файле.",
     ALGORITHM: "Алгоритм",
     CHECK_ALGORITHM_WIKI:
-        'За дополнительной информацией обращайтесь к <a href="${algo_url}">реализация алгоритма</a>.',
+        'За дополнительной информацией обращайтесь к <a href="${algoUrl}">реализация алгоритма</a>.',
+    SM2_OSR_VARIANT: "OSR's variant of SM-2",
     BASE_EASE: "Базовая Лёгкость",
     BASE_EASE_DESC: "минимум = 130, предпочтительно около 250.",
     BASE_EASE_MIN_WARNING: "Лёгкость должна быть минимум 130.",
@@ -174,7 +183,12 @@ Note that this setting is common to both Flashcards and Notes.`,
     MAX_LINK_CONTRIB_DESC:
         'Максимальный вклад среднего значения "Лёгкости" связанных заметок в начальную "Лёгкость".',
     LOGGING: "Журналирование",
-    DISPLAY_DEBUG_INFO: "Отображать отладочную информацию в консоли разработчика?",
+    DISPLAY_SCHEDULING_DEBUG_INFO: "Отображать отладочную информацию в консоли разработчика",
+    DISPLAY_PARSER_DEBUG_INFO: "Show the parser's debugging information on the developer console",
+    SCHEDULING: "Scheduling",
+    EXPERIMENTAL: "Experimental",
+    HELP: "Help",
+    STORE_IN_NOTES: "In the notes",
 
     // sidebar.ts
     NOTES_REVIEW_QUEUE: "Очередь заметок на повторение",

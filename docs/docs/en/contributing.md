@@ -12,18 +12,20 @@ First off, thanks for wanting to contribute to the Spaced Repetition plugin!
 
 The plugin has been translated into the following languages by the Obsidian community 😄.
 
-- Arabic / العربية
-- Chinese (Simplified) / 简体中文
-- Chinese (Traditional) / 繁體中文
-- Czech / čeština
-- German / Deutsch
-- Italian / Italiano
-- Korean / 한국어
-- Japanese / 日本語
-- Polish / Polski
-- Portuguese (Brazil) / Português do Brasil
-- Spanish / Español
-- Russian / русский
+-   Arabic / العربية
+-   Chinese (Simplified) / 简体中文
+-   Chinese (Traditional) / 繁體中文
+-   Czech / čeština
+-   French / français
+-   German / Deutsch
+-   Italian / Italiano
+-   Korean / 한국어
+-   Japanese / 日本語
+-   Polish / Polski
+-   Portuguese (Brazil) / Português do Brasil
+-   Spanish / Español
+-   Russian / русский
+-   Turkish / Türkçe
 
 ### Steps
 
@@ -46,7 +48,7 @@ export default {
     SHOW_ANSWER: "Show Answer",
     DAYS_STR_IVL: "${interval} days",
     CHECK_ALGORITHM_WIKI:
-        'For more information, check the <a href="${algo_url}">algorithm implementation</a>.',
+        'For more information, check the <a href="${algoUrl}">algorithm implementation</a>.',
 };
 ```
 
@@ -60,7 +62,7 @@ export default {
     SHOW_ANSWER: "Onyesha Jibu",
     DAYS_STR_IVL: "Siku ${interval}",
     CHECK_ALGORITHM_WIKI:
-        'Kwa habari zaidi, angalia <a href="${algo_url}">utekelezaji wa algorithm</a>.',
+        'Kwa habari zaidi, angalia <a href="${algoUrl}">utekelezaji wa algorithm</a>.',
 };
 ```
 
@@ -73,11 +75,10 @@ Please note that:
 
 ---
 
-
 ## Code
 
 1. Make your changes.
-2. Run `pnpm dev` to test the changes inside Obsidian.
+2. Run `pnpm dev` to watch for changes & rebuild the plugin automatically.
 3. You could create symbolic links between the build files and the Obsidian vault, example:
 
     ```bash
@@ -95,29 +96,18 @@ Please note that:
 5. If your "business logic" is properly decoupled from Obsidian APIs, write some unit tests.
     - This project uses [jest](https://jestjs.io/), tests are stored in `tests/`.
     - `pnpm test`
-6. Add your change to the `[Unreleased]` section of the changelog (`docs/docs/changelog.md`).
-    - The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), TL;DR:
-        - `Added` for new features.
-        - `Changed` for changes in existing functionality.
-        - `Deprecated` for soon-to-be removed features.
-        - `Removed` for now removed features.
-        - `Fixed` for any bug fixes.
-        - `Security` in case of vulnerabilities.
-    - You can also append a link to your GitHub profile, example:
-        - `Make flashcard text selectable [@st3v3nmw](https://github.com/st3v3nmw)`
-7. Before pushing your changes, run the linter: `pnpm lint`
+6. Before pushing your changes, run the linter: `pnpm lint`
     - Format the code in case any warnings are raised: `pnpm format`
-8. Open the pull request.
+7. Open the pull request.
 
 ---
-
 
 ## Documentation
 
 The documentation consists of Markdown files which [MkDocs](https://www.mkdocs.org/) converts to static web pages.
 Specifically, this project uses [MkDocs Material](https://squidfunk.github.io/mkdocs-material/getting-started/).
 
-These files reside in `docs/` in the respective language's folder. For instance, English docs are located in `docs/en/`.
+These files reside in `docs/docs/` in the respective language's folder. For instance, English docs are located in `docs/docs/en/`.
 
 The docs are served on [https://www.stephenmwangi.com/obsidian-spaced-repetition/](https://www.stephenmwangi.com/obsidian-spaced-repetition/).
 
@@ -142,13 +132,12 @@ For larger diffs, it's important that you check how your docs look like as expla
 
 ### Translating Documentation
 
-1. Create a folder for your language in `docs/` if it doesn't exist. Use the language codes provided [here](https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language).
+1. Create a folder for your language in `docs/docs/` if it doesn't exist. Use the language codes provided [here](https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language).
 2. Add the code from (1) to the MkDocs configuration (`mkdocs.yml` - `plugins.i18n.languages`).
 3. Copy the files from the English (`en`) folder into the new folder.
 4. Translate then open a pull request.
 
 ---
-
 
 ## Maintenance
 
@@ -168,11 +157,11 @@ Example using `v1.9.2`:
 
     ```bash
     git add .
-    git commit -m "Bump version to v1.9.2"
+    git commit -m "chore: bump version to v1.9.2"
     git push --set-upstream origin release-v1.9.2
     ```
 
 5. Open and merge the PR into `master`.
 6. Locally, switch back to `master` and pull the changes: `git switch master && git pull`
-7. Create a git tag with the version: `git tag 1.9.2`
+7. Create a git tag with the version: `git tag -a 1.9.2 -m "1.9.2"`
 8. Push the tag: `git push --tags`. <br> You're all set! [This GitHub action](https://github.com/st3v3nmw/obsidian-spaced-repetition/blob/master/.github/workflows/release.yml) should pick it up, create a release, publish it, and update the live documentation.

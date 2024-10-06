@@ -50,29 +50,29 @@ export default {
     YEARS_STR_IVL_MOBILE: "س${interval}",
 
     // settings.ts
-    SETTINGS_HEADER: "Spaced Repetition Plugin - Settings",
+    SETTINGS_HEADER: "Spaced Repetition",
     GROUP_TAGS_FOLDERS: "Tags & Folders",
     GROUP_FLASHCARD_REVIEW: "Flashcard Review",
     GROUP_FLASHCARD_SEPARATORS: "Flashcard Separators",
     GROUP_DATA_STORAGE: "Storage of Scheduling Data",
+    GROUP_DATA_STORAGE_DESC: "Choose where to store the scheduling data",
     GROUP_FLASHCARDS_NOTES: "Flashcards & Notes",
     GROUP_CONTRIBUTING: "Contributing",
-    CHECK_WIKI: '.<a href="${wiki_url}">wiki</a> لمزيد من المعلومات ، تحقق من',
+    CHECK_WIKI: '.<a href="${wikiUrl}">wiki</a> لمزيد من المعلومات ، تحقق من',
     GITHUB_DISCUSSIONS:
-        'Visit the <a href="${discussions_url}">discussions</a> section for Q&A help, feedback, and general discussion.',
+        'Visit the <a href="${discussionsUrl}">discussions</a> section for Q&A help, feedback, and general discussion.',
     GITHUB_ISSUES:
-        'Raise an issue <a href="${issues_url}">here</a> if you have a feature request or a bug-report.',
+        'Raise an issue <a href="${issuesUrl}">here</a> if you have a feature request or a bug report.',
     GITHUB_SOURCE_CODE:
-        'Project source code available on <a href="${github_project_url}">GitHub</a>',
+        'The project\'s source code is available on <a href="${githubProjectUrl}">GitHub</a>.',
     CODE_CONTRIBUTION_INFO:
-        'Information on <a href="${code_contribution_url}">code contributions</a>',
+        '<a href="${codeContributionUrl}">Here\'s</a> how to contribute code to the plugin.',
     TRANSLATION_CONTRIBUTION_INFO:
-        'Information on <a href="${translation_contribution_url}">translating the plugin</a> to your language',
-    PROJECT_CONTRIBUTIONS:
-        'Raise an issue <a href="${issues_url}">here</a> if you have a feature request or a bug-report',
+        '<a href="${translationContributionUrl}">Here\'s</a> how to translate the plugin to another language.',
     FOLDERS_TO_IGNORE: "مجلدات لتجاهلها",
-    FOLDERS_TO_IGNORE_DESC: `Templates Meta/Scripts.
-Note that this setting is common to both Flashcards and Notes. : أدخل مسارات المجلد مفصولة بواسطة سطور جديدة,مثال`,
+    FOLDERS_TO_IGNORE_DESC:
+        "Enter folder paths or glob patterns on separate lines e.g. Templates/Scripts or **/*.excalidraw.md. This setting is common to both flashcards and notes.",
+    OBSIDIAN_INTEGRATION: "Integration into Obsidian",
     FLASHCARDS: "البطاقات",
     FLASHCARD_EASY_LABEL: "نص الزر سهل",
     FLASHCARD_GOOD_LABEL: "نص الزر جيد",
@@ -80,6 +80,8 @@ Note that this setting is common to both Flashcards and Notes. : أدخل مسا
     FLASHCARD_EASY_DESC: '"تخصيص التسمية للزر "سهل',
     FLASHCARD_GOOD_DESC: '"تخصيص التسمية للزر "جيد',
     FLASHCARD_HARD_DESC: '"تخصيص التسمية للزر "صعب',
+    REVIEW_BUTTON_DELAY: "Button Press Delay (ms)",
+    REVIEW_BUTTON_DELAY_DESC: "Add a delay to the review buttons before they can be pressed again.",
     FLASHCARD_TAGS: "وُسوم البطاقات",
     FLASHCARD_TAGS_DESC: "#2أدخل الوُسوم مفصولة بمسافات أو أسطر جديدة ، أي بطاقات# رزمة3# رزمة",
     CONVERT_FOLDERS_TO_DECKS: "تحويل المجلدات إلى ملفات أصلية و ملفات الفرعية؟",
@@ -119,6 +121,7 @@ Note that this setting is common to both Flashcards and Notes. : أدخل مسا
     INLINE_REVERSED_CARDS_SEPARATOR: "فاصل من أجل البطاقات العكسية المضمنة",
     MULTILINE_CARDS_SEPARATOR: "فاصل من أجل البطاقات المتعددة",
     MULTILINE_REVERSED_CARDS_SEPARATOR: "فاصل من أجل البطاقات العكسية المتعددة",
+    MULTILINE_CARDS_END_MARKER: "الأحرف التي تدل على نهاية الكلوزات وبطاقات التعلم المتعددة الأسطر",
     NOTES: "ملاحظات",
     REVIEW_PANE_ON_STARTUP: "تمكين جزء مراجعة الملاحظات عند بدء التشغيل",
     TAGS_TO_REVIEW: "وسوم للمراجعة",
@@ -126,21 +129,26 @@ Note that this setting is common to both Flashcards and Notes. : أدخل مسا
     OPEN_RANDOM_NOTE: "افتح ملاحظة عشوائية للمراجعة",
     OPEN_RANDOM_NOTE_DESC: "(Pagerank) عند تعطيل هذا الخيار ،الملاحظات سيتم ترتيبُها حسب الأهمية",
     AUTO_NEXT_NOTE: "افتح الملاحظة التالية تلقائيًا بعد المراجعة",
-    DISABLE_FILE_MENU_REVIEW_OPTIONS:
-        "تعطيل خيارات المراجعة في قائمة الملفات ، أي المراجعة:السهل الصعب الجيد",
-    DISABLE_FILE_MENU_REVIEW_OPTIONS_DESC:
-        "عند تغيير هذا الخيار Obsidian أعد تشغيل , command hotkeys. بعد التعطيل ، يمكنك المراجعة باستخدام",
+    ENABLE_FILE_MENU_REVIEW_OPTIONS:
+        "فعّل خيارات المراجعة في قائمة الملف (مثال: مراجعة: سهل، جيد، صعب)",
+    ENABLE_FILE_MENU_REVIEW_OPTIONS_DESC:
+        "إذا قمت بتعطيل خيارات المراجعة في قائمة الملف، يمكنك مراجعة ملاحظاتك باستخدام أوامر الإضافة وإذا كنت قد حددتها، باستخدام مفاتيح الاختصار المرتبطة.",
     MAX_N_DAYS_REVIEW_QUEUE: "الحد الأقصى لعدد الأيام التي يجب عرضها على اللوحة اليمنى",
     MIN_ONE_DAY: "يجب أن يكون عدد الأيام 1 على الأقل",
     VALID_NUMBER_WARNING: "يرجى تقديم رقم صالح",
-    UI_PREFERENCES: "تفضيلات واجهة المستخدم",
+    UI: "User Interface",
+    SHOW_STATUS_BAR: "Show status bar",
+    SHOW_STATUS_BAR_DESC:
+        "Turn this off to hide the flashcard's review status in Obsidian's status bar",
+    SHOW_RIBBON_ICON: "Show icon in the ribbon bar",
+    SHOW_RIBBON_ICON_DESC: "Turn this off to hide the plugin icon from Obsidian's ribbon bar",
     INITIALLY_EXPAND_SUBDECKS_IN_TREE:
         "يجب أن يكون العرض الشجري للرُزم موسع بحيث تطهر الملفات الفرعية كلها",
     INITIALLY_EXPAND_SUBDECKS_IN_TREE_DESC:
         " عطل هذا الخيار لطي الرُزم المتداخلة في نفس البطاقة , مفيد إذا كان لديك بطاقات تنتمي إلى العديد من الرُزم في نفس الملف",
     ALGORITHM: "خوارزمية",
-    CHECK_ALGORITHM_WIKI:
-        '<a href="${algo_url}">algorithm implementation</a> :لمزيد من المعلومات تحقق من',
+    CHECK_ALGORITHM_WIKI: '<a href="${algoUrl}">algorithm details</a> :لمزيد من المعلومات تحقق من',
+    SM2_OSR_VARIANT: "OSR's variant of SM-2",
     BASE_EASE: "سهولة القاعدة",
     BASE_EASE_DESC: "الحد الأدنى = 130 ، ويفضل حوالي 250.",
     BASE_EASE_MIN_WARNING: "يجب أن تكون سهولة القاعدة 130 على الأقل.",
@@ -156,7 +164,12 @@ Note that this setting is common to both Flashcards and Notes. : أدخل مسا
     MAX_LINK_CONTRIB: "أقصى مساهمة ارتباط",
     MAX_LINK_CONTRIB_DESC: "أقصى مساهمة للسهولة المرجحة للملاحظات المرتبطة بالسهولة الأولية.",
     LOGGING: "تسجيل",
-    DISPLAY_DEBUG_INFO: "عرض معلومات التصحيح على وحدة تحكم المطور؟",
+    DISPLAY_SCHEDULING_DEBUG_INFO: "عرض معلومات التصحيح على وحدة تحكم المطور",
+    DISPLAY_PARSER_DEBUG_INFO: "Show the parser's debugging information on the developer console",
+    SCHEDULING: "Scheduling",
+    EXPERIMENTAL: "Experimental",
+    HELP: "Help",
+    STORE_IN_NOTES: "In the notes",
 
     // sidebar.ts
     NOTES_REVIEW_QUEUE: "ملاحظات قائمة المراجعة",
